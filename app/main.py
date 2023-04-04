@@ -17,9 +17,16 @@ def handleCommand(db_file, command):
             # Uncomment this to pass the first stage
             database_file.seek(16)  # Skip the first 16 bytes of the header
             page_size = int.from_bytes(database_file.read(2), byteorder="big")
-
+            number_of_tables = int.from_bytes(database_file.read(2), byteorder="big")
+            
+            # Logging
             logger.log(['main'], f"database page size: {page_size}")
+            logger.log(['main'], f"number of tables: {number_of_tables}")
+            
+            # Prints
             print(f"database page size: {page_size}")
+            print(f"number of tables: {number_of_tables}")
+            
     else:
         logger.log(['main'], f"Invalid command: {command}")
 
