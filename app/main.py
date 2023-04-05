@@ -17,6 +17,8 @@ def handleCommand(db_file, command):
             # Uncomment this to pass the first stage
             database_file.seek(16)  # Skip the first 16 bytes of the header
             page_size = int.from_bytes(database_file.read(2), byteorder="big")
+            
+            database_file.seek(103)
             number_of_tables = int.from_bytes(database_file.read(2), byteorder="big")
             
             # Logging
