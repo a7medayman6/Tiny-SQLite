@@ -20,15 +20,15 @@ def handleCommand(db_file, command):
             number_of_tables = int.from_bytes(database_file.read(2), byteorder="big")
             
             # Logging
-            logger.log(['main'], f"database page size: {page_size}")
-            logger.log(['main'], f"number of tables: {number_of_tables}")
+            logger.log(['main', 'handleCommand'], f"database page size: {page_size}")
+            logger.log(['main', 'handleCommand'], f"number of tables: {number_of_tables}")
             
             # Prints
             print(f"database page size: {page_size}")
             print(f"number of tables: {number_of_tables}")
             
     else:
-        logger.log(['main'], f"Invalid command: {command}")
+        logger.log(['main', 'handleCommand'], f"Invalid command: {command}")
 
 def main(args):
     database_file_path = args[1]
